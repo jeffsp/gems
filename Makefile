@@ -4,5 +4,6 @@ all:
 
 run: all
 	./build/debug/main_boilerplate
-	./build/debug/io
 	./build/debug/algo
+	./build/debug/io
+	./build/debug/metaprogramming

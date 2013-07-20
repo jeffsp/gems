@@ -6,7 +6,6 @@
 
 #include "gems.h"
 
-using namespace gems;
 using namespace std;
 
 const string usage = "usage: main_boilerplate";

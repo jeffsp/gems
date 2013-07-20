@@ -6,7 +6,6 @@
 
 #include "gems.h"
 
-using namespace gems;
 using namespace std;
 
 const string usage = "usage: io";
@@ -33,7 +32,10 @@ void f1 ()
     A a1 { 42 };
     ss << a1;
     A a2 { 24 };
+    clog << a1 << endl;
+    clog << a2 << endl;
     ss >> a2;
+    clog << a2 << endl;
     assert (a2.i == 42);
 }
 
@@ -43,16 +45,18 @@ void f2 ()
 {
     stringstream ss;
     vector<int> x { 1, 2, 3, 4, 5 };
-    copy (x.begin (), x.end (), ostream_iterator<int> (ss, "\n")); // formatted
-    assert (ss.str () == "1\n2\n3\n4\n5\n");
+    copy (x.begin (), x.end (), ostream_iterator<int> (ss, " ")); // formatted
+    clog << ss.str () << endl;
+    assert (ss.str () == "1 2 3 4 5 ");
 }
 
 void f3 ()
 {
     stringstream ss;
-    vector<int> x { 1, 2, 3, 4, 5 };
+    vector<int> x { 0x31, 0x32, 0x33, 0x34, 0x35 };
     copy (x.begin (), x.end (), ostreambuf_iterator<char> (ss)); // unformatted
-    assert (ss.str () == "\x01\x02\x03\x04\x05");
+    clog << ss.str () << endl;
+    assert (ss.str () == "12345");
 }
 
 int main (int argc, char **argv)

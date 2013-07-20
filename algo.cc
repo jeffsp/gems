@@ -6,19 +6,25 @@
 
 #include "gems.h"
 
-using namespace gems;
 using namespace std;
+using namespace gems;
 
 const string usage = "usage: algo";
 
 #include <algorithm>
 
+// generate() with lambda
 void f1 ()
 {
-    vector<int> x (100);
-    generate (x.begin (), x.end (), rand);
+    vector<int> x (10);
+    generate (x.begin (), x.end (), []() { return rand () % 100; });
+    print (clog, x);
+    // it might be clearer to do this
+    for (auto &i : x) i = rand () % 100;
+    print (clog, x);
 }
 
+// transform() with lambda
 void f2 ()
 {
     vector<int> a { 1, 2, 3, 4, 5 };
@@ -26,6 +32,7 @@ void f2 ()
     vector<bool> c (5);
     transform (a.begin (), a.end (), b.begin (), c.begin (),
         [] (int a, int b) { return a < b; });
+    print (clog, c);
     assert (c == vector<bool> ({ 0, 1, 0, 0, 1 }));
 }
 

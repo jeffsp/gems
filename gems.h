@@ -17,6 +17,16 @@
 
 namespace gems
 {
+
+template<typename V>
+std::ostream& print (std::ostream &s, const V &v)
+{
+    for (auto i : v)
+        s << ' ' << i;
+    s << std::endl;
+    return s;
+}
+
 }
 
 #endif
