@@ -15,7 +15,7 @@ struct A
     A (const int i) : i (i) { }
     int i;
     // Note: The 'friend' specifier makes it not part of the class,
-    // and is this neither public or private.
+    // and is neither public or private.
     friend std::ostream& operator<< (std::ostream &s, const A &a)
     {
         s << a.i;
