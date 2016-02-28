@@ -8,11 +8,13 @@
 #define GEMS_H
 
 #include <cassert>
+#include <chrono>
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <thread>
 #include <vector>
 
 namespace gems
@@ -25,6 +27,11 @@ std::ostream& print (std::ostream &s, const V &v)
         s << ' ' << i;
     s << std::endl;
     return s;
+}
+
+void sleep (size_t x)
+{
+    std::this_thread::sleep_for(std::chrono::milliseconds(x));
 }
 
 }

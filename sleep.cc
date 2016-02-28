@@ -10,14 +10,6 @@ using namespace std;
 
 const string usage = "usage: sleep";
 
-#include <chrono>
-#include <thread>
-
-void sleep (size_t x)
-{
-    this_thread::sleep_for(chrono::milliseconds(x));
-}
-
 int main (int argc, char **argv)
 {
     try
@@ -25,7 +17,7 @@ int main (int argc, char **argv)
         if (argc != 1)
             throw runtime_error (usage);
 
-        sleep (10);
+        gems::sleep (10);
 
         clog << "success" << endl;
 

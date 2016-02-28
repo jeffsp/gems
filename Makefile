@@ -7,4 +7,5 @@ run: all
 	./build/debug/algo
 	./build/debug/io
 	./build/debug/metaprogramming
+	./build/debug/timer
 	./build/debug/sleep
